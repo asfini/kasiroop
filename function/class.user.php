@@ -20,7 +20,7 @@ class User
         $data = $hasil->fetch_assoc();
         if($data >= 1)
         {
-            if($data['Level'] = "Administrator")
+            if($data['Level'] == "Administrator")
             {
                 $_SESSION['login'] = true;
                 $_SESSION['UserID'] = $data['UserID'];
@@ -28,12 +28,13 @@ class User
                 header("location:../admin.php");
                 return true;
             }
-            else if ($data['Level'] == "Petugas") {
-            $_SESSION['login'] = true;
-            $_SESSION['UserID'] = $data['UserID'];
-            $_SESSION['Level'] = $data['Level'];
-            header("location:../petugas.php");
-            return true;
+            if ($data['Level'] == "Petugas") 
+            {
+                $_SESSION['login'] = true;
+                $_SESSION['UserID'] = $data['UserID'];
+                $_SESSION['Level'] = $data['Level'];
+                header("location:../petugas.php");
+                return true;
             }
         }else{
             return false;

@@ -26,6 +26,7 @@
                             </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary">Login</button>
+                                <a href="register.php">Daftar Akun</a>
                             </div>
                         </form>
                     </div>

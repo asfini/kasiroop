@@ -55,6 +55,7 @@
     <div>
         <?php 
         if (isset($_GET['page'])) {
+            //tampung di variabel page
             $page = $_GET['page'];
             switch ($page) {
                 case 'produk':
