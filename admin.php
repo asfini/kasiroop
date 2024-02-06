@@ -58,18 +58,18 @@
             //tampung di variabel page
             $page = $_GET['page'];
             switch ($page) {
-                case 'produk':
-                    include 'page/produk.php';
-                    break;
-                case 'edit_produk':
-                    include 'page/edit_produk.php';
-                    break;
                 case 'user':
                     include 'page/user.php';
                     break;
                 case 'edit_user':
                     include 'page/edit_user.php';
                     break;
+                case 'produk':
+                    include 'page/produk.php';
+                    break;
+                case 'edit_produk':
+                    include 'page/edit_produk.php';
+                    break;                
                 case 'pelanggan':
                     include 'page/pelanggan.php';
                     break;

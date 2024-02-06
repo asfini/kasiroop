@@ -54,8 +54,8 @@
                             </thead>
                             <?php
                             require_once "function/class.produk.php";
-                            $Produk = new Produk();
-                            $select = $Produk->tampil();
+                            $produk = new Produk();
+                            $select = $produk->tampil();
                             foreach ($select as $data) {
                             ?>
                                 <tbody>
@@ -65,7 +65,7 @@
                                         <td> <?php echo $data['Harga'] ?> </td>
                                         <td> <?php echo $data['Stok'] ?> </td>
                                         <td>
-                                            <a href="admin.php?page=edit_produk&ProdukID=<?php echo $data['ProdukID'] ?>"> Edit </a> |
+                                            <a href="admin.php?page=edit_produk&ProdukID=<?php echo $data['ProdukID'] ?>"> Edit </a> | 
                                             <a href="proses/proses_produk.php?ProdukID=<?php echo $data['ProdukID'] ?>&aksi=hapus"> Hapus </a>
                                         </td>
                                     </tr>
