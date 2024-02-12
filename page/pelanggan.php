@@ -65,8 +65,8 @@
                                         <td> <?php echo $data['Alamat'] ?> </td>
                                         <td> <?php echo $data['NomorTelepon'] ?> </td>
                                         <td>
-                                            <a href="admin.php?page=edit_pelanggan&PelangganID=<?php echo $data['PelangganID'] ?>"> Edit </a> |
-                                            <a href="proses/proses_pelanggan.php?PelangganID=<?php echo $data['PelangganID'] ?>&aksi=hapus"> Hapus </a>
+                                            <a href="admin.php?page=edit_pelanggan&PelangganID=<?php echo $data['PelangganID'] ?>" class="btn btn-success"> Edit </a> |
+                                            <a href="proses/proses_pelanggan.php?PelangganID=<?php echo $data['PelangganID'] ?>&aksi=hapus" class="btn btn-warning"> Hapus </a>
                                         </td>
                                     </tr>
                                 </tbody>

@@ -47,7 +47,8 @@
         <a href="admin.php?page=user" class="btn btn-primary mx-2">User</a>
         <a href="admin.php?page=produk" class="btn btn-primary mx-2">Produk</a>
         <a href="admin.php?page=pelanggan" class="btn btn-primary mx-2">Pelanggan</a>
-        <a href="admin.php?page=penjualan" class="btn btn-primary mx-2">Penjualan</a>    
+        <a href="admin.php?page=penjualan" class="btn btn-primary mx-2">Penjualan</a>
+        <a href="admin.php?page=laporan" class="btn btn-success mx-2">Laporan</a>    
         <a href="admin.php?logout=logout" class="btn btn-danger ml-auto">Logout</a>
     </nav>
 
@@ -85,7 +86,9 @@
                 case 'laporan':
                     include 'page/laporan.php';
                     break;
-                
+                case 'detail_penjualan':
+                    include 'page/detail_penjualan.php';
+                    break;
                 default:
                     # code...
                     break;

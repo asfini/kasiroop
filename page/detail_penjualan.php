@@ -7,32 +7,35 @@
             <div class="col-sm-5">
                 <div class="card">
                     <div class="card-header">
-                        Input Produk
+                        Detail Penjualan
                     </div>
                     <div class="card-body">
-                        <form action="proses/proses_produk.php?aksi=simpan" method="POST">
-                            <table class="table table-hover">
+                        <?php 
+                            require_once "function/class.laporan.php";
+                            $laporan = new Laporan();
+                            $select = $laporan->getidpenjualan($_GET['PenjualanID']);
+                            foreach ($select as $data) {
+                            ?>
+                            <table class="table table-hover">                                
                                 <tr>
-                                    <td>Produk ID</td>
-                                    <td><input type="text" name="ProdukID" class="form-control"></td>
+                                    <td>Penjualan ID</td>
+                                    <td><?php echo $data['PenjualanID'] ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Nama Produk</td>
-                                    <td><input type="text" name="NamaProduk" class="form-control"></td>
+                                    <td>Tanggal Penjualan</td>
+                                    <td><?php echo $data['TanggalPenjualan'] ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Harga</td>
-                                    <td><input type="text" name="Harga" class="form-control"></td>
+                                    <td>Total Harga</td>
+                                    <td><?php echo $data['TotalHarga'] ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Stok</td>
-                                    <td><input type="text" name="Stok" class="form-control"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" align="right"><button type="submit" class="btn btn-primary">Simpan</button></td>
+                                    <td>Pelanggan ID</td>
+                                    <td><?php echo $data['PelangganID'] ?></td>
                                 </tr>
                             </table>
-                        </form>
+                            <?php } ?>
+                            <a href="admin.php?page=laporan" class="btn btn-success">Back</a>
                     </div>
                 </div>
             </div>
@@ -48,14 +51,13 @@
                                     <th scope="col">ID Produk</th>
                                     <th scope="col">Nama Produk</th>
                                     <th scope="col">Harga</th>
-                                    <th scope="col">Stok</th>
-                                    <th scope="col">Aksi</th>
+                                    <th scope="col">Jumlah</th>
                                 </tr>
                             </thead>
                             <?php
-                            require_once "function/class.produk.php";
-                            $produk = new Produk();
-                            $select = $produk->tampil();
+                            require_once "function/class.laporan.php";
+                            $laporan = new Laporan();
+                            $select = $laporan->detail_tampil($_GET['PenjualanID']);
                             foreach ($select as $data) {
                             ?>
                                 <tbody>
@@ -63,11 +65,7 @@
                                         <td> <?php echo $data['ProdukID'] ?> </td>
                                         <td> <?php echo $data['NamaProduk'] ?> </td>
                                         <td> <?php echo $data['Harga'] ?> </td>
-                                        <td> <?php echo $data['Stok'] ?> </td>
-                                        <td>
-                                            <a href="admin.php?page=edit_produk&ProdukID=<?php echo $data['ProdukID'] ?>" class="btn btn-success"> Edit </a> | 
-                                            <a href="proses/proses_produk.php?ProdukID=<?php echo $data['ProdukID'] ?>&aksi=hapus" class="btn btn-warning"> Hapus </a>
-                                        </td>
+                                        <td> <?php echo $data['JumlahProduk'] ?> </td>
                                     </tr>
                                 </tbody>
                             <?php } ?>
