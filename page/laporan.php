@@ -1,9 +1,26 @@
 <div class="container">
     <div class="col-lg-12">
-        <h4 align="center">Produk</h4>
+        <h4 align="center">Laporan</h4>
+
+        <form action="" method="post" class="form-horizontal">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Tanggal</label>
+                
+                <div class="col-sm-4">
+                    <input type="date" name="tanggal_awal" " class=" form-control">
+                </div>
+                <div class="col-sm-4">
+                    <input type="date" name="tanggal_akhir" " class=" form-control">
+                </div>
+                <div class="col-sm-2">
+                    <button type="submit" name="btnlaporan" class="btn btn-primary">Tampilkan</button>
+                </div>
+            </div>
+        </form>
+        
         <br>
         <div class="row">            
-            <div class="col-sm-8">
+            <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
                         Data Penjualan
@@ -22,10 +39,17 @@
                             <?php
                             require_once "function/class.laporan.php";
                             $laporan = new Laporan();
-                            $select = $laporan->tampil();
-                            foreach ($select as $data) {
+
+                            if (isset($_POST["btnlaporan"])) {
+                                $select = $laporan->tampil_tanggal($_POST['tanggal_awal'],$_POST['tanggal_akhir']);
+                            }else{
+                                $select = $laporan->tampil();                                
+                            }
                             ?>
                                 <tbody>
+                                    <?php 
+                                    foreach ($select as $data) {
+                                    ?>
                                     <tr>
                                         <td> <?php echo $data['PenjualanID'] ?> </td>
                                         <td> <?php echo $data['TanggalPenjualan'] ?> </td>

@@ -42,7 +42,7 @@ class Penjualan
         FROM detailpenjualan dp
         JOIN produk p ON dp.ProdukID = p.ProdukID
         WHERE dp.PenjualanID > (SELECT MAX(PenjualanID) FROM penjualan)");
-
+        
         $query->execute();
         $hasil =  $query->get_result();
         return $hasil;

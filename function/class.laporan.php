@@ -48,6 +48,14 @@ class Laporan
         $hasil =  $query->get_result();
         return $hasil;
     }
+
+    public function tampil_tanggal($tglawal, $tglakhir)
+    {
+        $query = $this->db->prepare("SELECT * FROM penjualan WHERE TanggalPenjualan BETWEEN '$tglawal' AND '$tglakhir'");
+        $query->execute();
+        $hasil =  $query->get_result();
+        return $hasil;
+    }
 }
 
 ?>

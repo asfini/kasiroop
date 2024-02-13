@@ -70,9 +70,16 @@
                                 </tbody>
                             <?php } ?>
                         </table>
+                        <button type="submit" id="myfunction" onclick="myFunction();" class="btn btn-primary">Print</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    function myFunction() {
+        window.print();
+    }
+</script>
