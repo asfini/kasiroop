@@ -54,7 +54,7 @@ else if(isset($_POST['btnPenjualan']))
                                         </select>
                                     </td>
                                     <td>
-                                        <input type="number" min=1 name="JumlahProduk" id="JumlahProduk" class="form-control">
+                                        <input type="number" min=1 name="JumlahProduk" class="form-control">
                                     </td>
                                     <td>
                                         <input type="submit" name="btnProduk" value="Input" class="btn btn-primary">
