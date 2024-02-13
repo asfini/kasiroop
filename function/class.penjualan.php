@@ -27,19 +27,29 @@ class Penjualan
     //menginput data paket yang akan dipilih
     // $query = $this->db->prepare("INSERT INTO detailpenjualan VALUES(null,'$PenjualanID','$ProdukID','$JumlahProduk',0)");
 
+    // public function input_produk($DetailID, $PenjualanID, $ProdukID, $JumlahProduk)
+    // {
+    //     $query = $this->db->prepare("INSERT INTO detailpenjualan (DetailID, PenjualanID, ProdukID, JumlahProduk, Subtotal)
+    //     SELECT null, ?, ?, ?, Produk.Harga * ? AS Subtotal 
+    //     FROM produk 
+    //     WHERE ProdukID = ?");
+    //     $query->bind_param('iiiii', $PenjualanID, $ProdukID, $JumlahProduk, $JumlahProduk, $ProdukID);
+    
+    //     if ($query->execute()) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
+
     public function input_produk($DetailID, $PenjualanID, $ProdukID, $JumlahProduk)
     {
         $query = $this->db->prepare("INSERT INTO detailpenjualan (DetailID, PenjualanID, ProdukID, JumlahProduk, Subtotal)
-        SELECT null, ?, ?, ?, Produk.Harga * ? AS Subtotal 
-        FROM produk 
-        WHERE ProdukID = ?");
-        $query->bind_param('iiiii', $PenjualanID, $ProdukID, $JumlahProduk, $JumlahProduk, $ProdukID);
-    
-    if ($query->execute()) {
+        SELECT NULL, '$PenjualanID', ProdukID, '$JumlahProduk', Harga * '$JumlahProduk' AS Subtotal
+        FROM produk
+        WHERE ProdukID = '$ProdukID'");
+        $query->execute();
         return true;
-    } else {
-        return false;
-    }
     }
 
     //menampilkan produk di keranjang
