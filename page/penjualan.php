@@ -158,15 +158,3 @@ else if(isset($_POST['btnPenjualan']))
         </form>
     </div>
 </div>
-
-<script>
-    //menghitung total = jumlah * harga
-    function hitung() {
-        var jumlah = document.getElementById('jumlah').value;
-        var harga_barang = document.getElementById('harga_barang').value;
-        var result = parseInt(jumlah) * parseInt(harga_barang);
-        if (!isNaN(result)) {
-            document.getElementById('total').value = result;
-        }
-    }
-</script>
